@@ -1,0 +1,66 @@
+//
+// Created by ty on 2020/8/21.
+//
+
+#ifndef COMPARESERVER_BASE_H
+#define COMPARESERVER_BASE_H
+
+//应答报文
+typedef struct response{
+    int code;
+    const char* abbreviate;
+    const char* describe;
+}st_RESPONSE;
+
+typedef enum response_code{
+    SUCCESS_200 = 0,
+    KEY_FAILED_401 = 1,
+    BAN_403 = 2,
+    NOT_SUPPORT_405 = 3,
+    REQUEST_TIMEOUT_408 = 4,
+    REQUEST_ERROR_410 = 5,
+    REQUEST_BIG_413 = 6,
+    SERVER_UNAVAILABLE_503 = 7,
+    SERVER_BUSY_506 = 8,
+    DONT_SUPPORT_SERVICE_510 = 9,
+    REQUEST_ERROR_512 = 10,
+    PICTURE_ERROR_513 = 11,
+    NO_FACE_514 = 12,
+    PICTURE_BAD_515 = 13,
+    PICTURE_INVALID_516 = 14,
+    NO_FACE_IN_PICTURE_517 = 15,
+    NO_FIND_ID_518 = 16,
+    NOT_SAME_PERSON_519 = 17,
+    PERSON_ALREADY_EXIST_1002 = 18,
+    ID_ALREADY_EXIST_1003 = 19,
+    SCORE_LOW_1004 = 20,
+    NO_MESSAGE_1005 = 21,
+    SELECT_MYSQL_ERROR_1006 = 22,
+    INSERT_MYSQL_ERROR_1007 = 23,
+    CONNECT_MYSQL_ERROR_1008 = 24,
+    APP_VERSION_IS_NEWEST_1009 = 25,
+    CANT_FIND_APP_FILE_1010 = 26,
+    APP_FILENAME_ERROR_1011 = 27,
+    FACE_ID_NULL_1012 = 28,
+    DELETE_REGISTER_INFO_ERROR_1013 = 29,
+    NO_SUCH_PERSON_1014 = 30,
+    FAILURE_OF_FACE_BINDING_1015 = 31,
+    FRIST_FACE_DISTINGUISH_FAILED_1016 = 32,
+    POST_TO_PRINT_SERVICE_FAILED_1017 = 33,
+    CENTER_FACE_AUTHENTICATION_FAILED_1018 = 34,
+    POST_TO_PRINT_SERVICE_TIMEOUT_1019 = 35,
+    POST_TO_CENTER_FAILED_1020 = 36,
+    PRINT_SERVICE_AUTHENTICATION_FAILED_1021 = 37,
+    SEND_TO_PRINT_SERVICE_FAILED_1023 = 39,
+    PRINT_SERVICE_USER_AUTH_FAILED_1024 = 40,
+    UPDATE_AUDIT_STATUS_FAILED_1025 = 41
+}en_RESPONSE_CODE;
+
+
+
+#define response_code(index) gresponse_def[index].code
+#define response_abbreviate(index) gresponse_def[index].abbreviate
+#define response_describe(index) gresponse_def[index].describe
+
+
+#endif //COMPARESERVER_BASE_H
